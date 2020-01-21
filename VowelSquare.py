@@ -15,7 +15,16 @@ for i in range(len(matrix)):
         if matrix[i][j]:
             squence.append(j)
         else:
-            if len(matrix)>2:
+            if len(squence)>2:
                 squence = []
     matrix2.append(squence)
 print(matrix2)
+
+prev = matrix2[0]
+
+for x in range(1,len(matrix2)):
+    sq = []
+    for y in matrix2[x]:
+        if y in prev:
+            sq.append(y)
+        else:
