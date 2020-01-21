@@ -1,30 +1,42 @@
-arr = ["aqrst", "ukaei", "ffooo"]
+words = [
+        "aaqait",
+        "uakai",
+        "ffoo"]
+
+
 vowels = ['a','e','i','o','u']
-matrix = []
-for words in arr:
-    vector = []
-    for letter in words:
-        vector.append(letter in vowels)
-    matrix.append(vector)
 
 
-matrix2 = []
-for i in range(len(matrix)):
-    squence= []
-    for j in range(len(matrix[i])):
-        if matrix[i][j]:
-            squence.append(j)
-        else:
-            if len(squence)>2:
-                squence = []
-    matrix2.append(squence)
-print(matrix2)
+def VowelSquare(arr):
+    prev = arr[0]
 
-prev = matrix2[0]
+    counter=1
+    while (len(prev)<2 and counter < len(arr)):
+        prev = arr[counter]
+        counter +=1
 
-for x in range(1,len(matrix2)):
-    sq = []
-    for y in matrix2[x]:
-        if y in prev:
-            sq.append(y)
-        else:
+
+    previndex = counter
+    indexes = []
+    for i in range(counter,len(arr)):
+
+        consecutiveCommonVowel = 0
+        for j in range(len(arr[i])):
+            if arr[i][j] in vowels and prev[j] in vowels:
+                consecutiveCommonVowel +=1
+            else:
+                consecutiveCommonVowel =0
+            if consecutiveCommonVowel == 2:
+                indexes.append([i-1,i])
+                break
+
+        prev = arr[i]
+
+    return indexes
+
+square = VowelSquare(words)
+if len(square)>0:
+
+    print(square)
+else:
+    print('not found')
