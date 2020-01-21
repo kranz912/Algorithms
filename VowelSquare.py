@@ -1,11 +1,5 @@
-words = [
-        "aaqait",
-        "uakai",
-        "ffoo"]
-
 
 vowels = ['a','e','i','o','u']
-
 
 def VowelSquare(arr):
     prev = arr[0]
@@ -34,7 +28,15 @@ def VowelSquare(arr):
 
     return indexes
 
+
+words = [
+        "aaqait",
+        "uakai",
+        "ffoo"]
+
+
 square = VowelSquare(words)
+
 if len(square)>0:
 
     print(square)
