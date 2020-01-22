@@ -6,13 +6,13 @@ class ListNode:
 
 
 class Solution:
-    def displayLinkedList(l1:ListNode):
+    def displayLinkedList(self,l1:ListNode):
         while(True):
-            print(l1.value,end='->')
-
-
             if l1 == None:
                 break
+            print(l1.val,end='->')
+            l1=l1.next
+
 
     def addTwoNumbers(self, l1: ListNode, l2: ListNode):
         number1 = l1
@@ -36,26 +36,33 @@ class Solution:
             currentDigit = ListNode(sum)
             if lsum == None:
                 lsum = currentDigit
-
             else:
                 lsum.next = currentDigit
 
 
             if number1==None:
-                while number2 != None:
 
+                while number2 != None:
                     number2 = number2.next
+
+                if(carryon>0):
+                    print(carryon)
+                    lsum.next = ListNode(carryon)
                 break
             elif number2==None:
+                if(carryon>0):
+                    lsum.next = ListNode(carryon)
                 break
+        return lsum
 
 
 
 
-
-number = ListNode(5)
+number = ListNode(6)
 number.next = ListNode(5)
 
 
 solution = Solution()
-solution.addTwoNumbers(l1=number, l2=number)
+sum= solution.addTwoNumbers(l1=number, l2=number)
+
+solution.displayLinkedList(l1=sum)
