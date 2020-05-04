@@ -1,5 +1,5 @@
 '''
-Challenge
+Vowel Square
 
 You will create a function which takes a matrix filled with letters from the alphabet and determine if a 2x2 square composed of vowels exists.
 
