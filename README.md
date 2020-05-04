@@ -32,6 +32,23 @@ Note:
 1. <= S.length <= 10000
 2. S only contains characters "I" or "D".
 
+#### Solution:
+```python
+S = "IDID"
+N = len(S)
+A = [x for x in range(N+1)]
+B= []
+
+for i in range(len(S)):
+    if S[i]=='I':
+        B.append(A.pop(0))
+    else:
+        B.append(A.pop())
+
+B.append(A.pop())
+print(B)
+
+```
 
 ### 2. Vowel Square
 
@@ -55,6 +72,53 @@ Input ["abcd", "eikr", "oufj"]
 Output: [[1,0]]
 ```
 
+#### Solution:
+```python
+vowels = ['a','e','i','o','u']
+
+def VowelSquare(arr):
+    prev = arr[0]
+
+    counter=1
+    while (len(prev)<2 and counter < len(arr)):
+        prev = arr[counter]
+        counter +=1
+
+
+    previndex = counter
+    indexes = []
+    for i in range(counter,len(arr)):
+
+        consecutiveCommonVowel = 0
+        for j in range(len(arr[i])):
+            if arr[i][j] in vowels and prev[j] in vowels:
+                consecutiveCommonVowel +=1
+            else:
+                consecutiveCommonVowel =0
+            if consecutiveCommonVowel == 2:
+                indexes.append([i-1,i])
+                break
+
+        prev = arr[i]
+
+    return indexes
+
+
+words = [
+        "aaqait",
+        "uakai",
+        "ffoo"]
+
+
+square = VowelSquare(words)
+
+if len(square)>0:
+    print(square)
+else:
+    print('not found')
+
+```
+
 
 ### 3. Reverse a string without affecting special characters
 Given a string, that contains special character together with alphabets (‘a’ to ‘z’ and ‘A’ to ‘Z’), reverse the string in a way that special characters are not affected.
@@ -69,4 +133,31 @@ Output:  str = "c,b$a"
 
 Input:   str = "Ab,c,de!$"
 Output:  str = "ed,c,bA!$"
+```
+
+
+#### Solution:
+```python
+def reverseString(text):
+    r=len(text)-1
+    l=0
+    x=[]
+
+    while len(x) != len(text):
+        right = text[r]
+        left  = text[l]
+        if(not left.isalpha()):
+            x.append(left)
+        else:
+            while True:
+                r=r-1
+                if right.isalpha():
+                    x.append(right)
+                    break
+                right = text[r]
+        l=l+1
+    return x
+
+print("".join(reverseString("a!!!b.c.d,e'f,ghi")))
+
 ```
