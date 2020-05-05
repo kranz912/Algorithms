@@ -170,3 +170,38 @@ Input: aaasbb
 Output: asb
 
 ```
+
+#### Solution:
+```python
+def removeDuplicates(S):
+    dict = {}
+    for s in S:
+        dict.update({s:1})
+    return "".join(dict.keys())
+
+print(removeDuplicates("aaasbb"))
+```
+
+### 5. Check Pangram
+Given a string check if it is Pangram or not. A pangram is a sentence containing every letter in the English Alphabet.
+```
+Examples:
+
+"The quick brown fox jumps over the lazy dog" is a Pangram [Contains all the characters from 'a' to 'z']
+"The quick brown fox jumps over the dog" is not a Pangram [Doesn't contains all the characters from 'a' to 'z', as 'l', 'z', 'y' are missing]
+```
+
+#### Solution:
+```python
+
+def checkPangram(S):
+    dict = {}
+    S= S.lower()
+    for s in S:
+        if s.isalpha():
+            dict.update({s:1})
+    return len(dict) ==26
+
+print(checkPangram("The quick brown fox jumps over the lazy dog"))
+
+```
