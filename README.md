@@ -126,13 +126,13 @@ Given a string, that contains special character together with alphabets (‘a’
 ```
 Examples:
 
-Input:   str = "a,b$c"
-Output:  str = "c,b$a"
+Input: "a,b$c"
+Output: "c,b$a"
 #Note that $ and , are not moved anywhere.  
 #Only subsequence "abc" is reversed
 
-Input:   str = "Ab,c,de!$"
-Output:  str = "ed,c,bA!$"
+Input:  "Ab,c,de!$"
+Output: "ed,c,bA!$"
 ```
 
 
@@ -156,8 +156,17 @@ def reverseString(text):
                     break
                 right = text[r]
         l=l+1
-    return x
+    return "".join(x)
 
-print("".join(reverseString("a!!!b.c.d,e'f,ghi")))
+print(reverseString("a!!!b.c.d,e'f,ghi"))
+```
+
+### 4. Remove duplicates from a give string
+Given a string S, the task is to remove all the duplicates in the given string.
+```
+Examples:
+
+Input: aaasbb
+Output: asb
 
 ```

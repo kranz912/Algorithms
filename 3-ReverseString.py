@@ -32,6 +32,6 @@ def reverseString(text):
                     break
                 right = text[r]
         l=l+1
-    return x
+    return "".join(x)
 
-print("".join(reverseString("a!!!b.c.d,e'f,ghi")))
+print(reverseString("a!!!b.c.d,e'f,ghi"))
