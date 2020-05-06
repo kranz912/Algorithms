@@ -205,3 +205,33 @@ def checkPangram(S):
 print(checkPangram("The quick brown fox jumps over the lazy dog"))
 
 ```
+
+
+### 6. Check Pangram Missing Characters
+Pangram is a sentence containing every letter in the English alphabet. Given a string, find all characters that are missing from the string, i.e., the characters that can make string a Pangram. We need to print output in alphabetic order.
+
+```
+Examples:
+
+Input : welcome to geeksforgeeks
+Output : abdhijnpquvxyz
+
+Input : The quick brown fox jumps
+Output : adglvyz
+```
+
+
+
+#### Solution
+``` python
+def checkPangram(S):
+    dict = {}
+    S= S.lower()
+    for s in S:
+        if s.isalpha():
+            dict.update({s:1})
+    return len(dict) ==26
+
+print(checkPangram("The quick brown fox jumps over the lazy dog"))
+
+```
